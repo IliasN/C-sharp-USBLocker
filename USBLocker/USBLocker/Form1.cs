@@ -46,6 +46,11 @@ namespace USBLocker
 
         #endregion
 
+        /// <summary>
+        /// Hide the window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
             Data data = new Data(this);
@@ -54,7 +59,9 @@ namespace USBLocker
             this.ShowInTaskbar = false;
         }
 
-
+        /// <summary>
+        /// Lock the window and show it
+        /// </summary>
         public void Lock()
         {
             this.FormBorderStyle = FormBorderStyle.None;
@@ -63,6 +70,9 @@ namespace USBLocker
             Show();
         }
 
+        /// <summary>
+        /// Unlock and hide the window
+        /// </summary>
         public void Unlock()
         {
             this.WindowState = FormWindowState.Minimized;
@@ -73,6 +83,11 @@ namespace USBLocker
 
         #endregion
 
+        /// <summary>
+        /// Show the window to block the PC
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tmrLock_Tick(object sender, EventArgs e)
         {
             if (this.Locked)
