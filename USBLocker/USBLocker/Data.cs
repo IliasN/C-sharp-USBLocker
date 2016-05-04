@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace USBLocker
 {
@@ -14,6 +15,7 @@ namespace USBLocker
         private string _unlockCode;
         private string _unlockDriveCode;
         private Timer _tmrCheckDrive;
+        private Timer _tmrGenerateCode;
         private Drives _drives;
         private bool _locked;
 
@@ -85,7 +87,10 @@ namespace USBLocker
             _tmrCheckDrive = new Timer();
             _tmrCheckDrive.Interval = 1000;
             _tmrCheckDrive.Tick += new EventHandler(tmrCheckDrive_Tick);
-            _tmrCheckDrive.Start();
+
+            _tmrGenerateCode = new Timer();
+            _tmrGenerateCode.Interval = 60000;
+            _tmrGenerateCode.Tick += new EventHandler(tmrGenerateCode_Tick);
 
             this.Drives = new Drives();
 
@@ -94,6 +99,29 @@ namespace USBLocker
 
         #endregion
 
+        /// <summary>
+        /// Start le timer
+        /// </summary>
+        public void Start()
+        {
+            _tmrCheckDrive.Start();
+            _tmrGenerateCode.Start();
+        }
+
+        /// <summary>
+        /// Stop le timer
+        /// </summary>
+        public void Stop()
+        {
+            _tmrCheckDrive.Stop();
+            _tmrGenerateCode.Stop();
+        }
+
+        /// <summary>
+        /// Verifie si la clé est entrée dans le poste et verifie le mot de passe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tmrCheckDrive_Tick(object sender, EventArgs e)
         {
             this.Drives.UpdateDrives();
@@ -109,6 +137,20 @@ namespace USBLocker
                 this.Locked = true;
                 MessageBox.Show("Lock");
             }
+        }
+
+        /// <summary>
+        /// Genere un code different si la clé est presente est le modifie en consequence sur la clé et dans le logiciel.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tmrGenerateCode_Tick(object sender, EventArgs e)
+        {
+            SHA1 encrypt = new SHA1CryptoServiceProvider();
+            string newCode = BitConverter.ToString(encrypt.ComputeHash(Encoding.UTF8.GetBytes(DateTime.Now.ToString())));
+
+            if (this.Drives.ChangeCode(newCode))
+                this.UnlockCode = newCode;
         }
 
         #endregion
