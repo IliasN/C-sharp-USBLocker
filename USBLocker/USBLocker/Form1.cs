@@ -20,6 +20,7 @@ namespace USBLocker
         private void Form1_Load(object sender, EventArgs e)
         {
             Data data = new Data();
+            data.Start();
         }
     }
 }
