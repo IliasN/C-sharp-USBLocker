@@ -12,3 +12,5 @@
 </ol>
 <h3>Change locking wallpaper :</h3>
 <p>In the application folder just put the image that you want with the name "wallpaper.png".</p>
+<h3>How to close the application :</h3>
+<p>Just kill it in the task manager.</p>
