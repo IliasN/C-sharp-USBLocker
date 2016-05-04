@@ -50,20 +50,25 @@ namespace USBLocker
         {
             Data data = new Data(this);
             data.Start();
+            this.WindowState = FormWindowState.Minimized;
+            this.ShowInTaskbar = false;
         }
+
 
         public void Lock()
         {
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             this.Locked = true;
+            Show();
         }
 
         public void Unlock()
         {
-            this.FormBorderStyle = FormBorderStyle.Sizable;
-            this.WindowState = FormWindowState.Normal;
+            this.WindowState = FormWindowState.Minimized;
+            this.ShowInTaskbar = false;
             this.Locked = false;
+            Hide();
         }
 
         #endregion
