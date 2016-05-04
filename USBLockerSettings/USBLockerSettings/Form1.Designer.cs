@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.cmbDevices = new System.Windows.Forms.ComboBox();
             this.lblSelect = new System.Windows.Forms.Label();
             this.btnConf = new System.Windows.Forms.Button();
@@ -69,6 +70,7 @@
             this.Controls.Add(this.btnConf);
             this.Controls.Add(this.lblSelect);
             this.Controls.Add(this.cmbDevices);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "USB Locker Settings";
             this.Load += new System.EventHandler(this.Form1_Load);

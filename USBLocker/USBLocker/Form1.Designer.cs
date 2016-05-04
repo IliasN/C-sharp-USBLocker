@@ -66,6 +66,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(648, 348);
             this.Controls.Add(this.pibWallpaper);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "USB locker";
             this.Load += new System.EventHandler(this.Form1_Load);

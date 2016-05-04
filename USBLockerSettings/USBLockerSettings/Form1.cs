@@ -41,6 +41,7 @@ namespace USBLockerSettings
 
                 File.WriteAllText("code.txt", newCode);
                 File.WriteAllText(cmbDevices.SelectedItem + "usblock.txt", newCode);
+                MessageBox.Show("Configuration done successfully!");
             }
             catch (Exception ex)
             {
