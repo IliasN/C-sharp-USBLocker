@@ -19,7 +19,7 @@ namespace USBLocker
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            Drives ok = new Drives();
         }
     }
 }
