@@ -53,7 +53,7 @@ namespace USBLocker
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
-            pibWallpaper.ImageLocation = "eco.png";
+            pibWallpaper.ImageLocation = "wallpaper.png";
             Data data = new Data(this);
             data.Start();
             this.WindowState = FormWindowState.Minimized;
