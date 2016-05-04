@@ -1,0 +1,8 @@
+E:\CFPT 3ème\M318\USBLocker\USBLockerSettings\USBLockerSettings\bin\Debug\USBLockerSettings.exe.config
+E:\CFPT 3ème\M318\USBLocker\USBLockerSettings\USBLockerSettings\bin\Debug\USBLockerSettings.exe
+E:\CFPT 3ème\M318\USBLocker\USBLockerSettings\USBLockerSettings\bin\Debug\USBLockerSettings.pdb
+E:\CFPT 3ème\M318\USBLocker\USBLockerSettings\USBLockerSettings\obj\Debug\USBLockerSettings.Form1.resources
+E:\CFPT 3ème\M318\USBLocker\USBLockerSettings\USBLockerSettings\obj\Debug\USBLockerSettings.Properties.Resources.resources
+E:\CFPT 3ème\M318\USBLocker\USBLockerSettings\USBLockerSettings\obj\Debug\USBLockerSettings.csproj.GenerateResource.Cache
+E:\CFPT 3ème\M318\USBLocker\USBLockerSettings\USBLockerSettings\obj\Debug\USBLockerSettings.exe
+E:\CFPT 3ème\M318\USBLocker\USBLockerSettings\USBLockerSettings\obj\Debug\USBLockerSettings.pdb
