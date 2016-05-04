@@ -12,3 +12,5 @@ Done!
 
 Change locking wallpaper :
 In the application folder just put the image that you want with the name "wallpaper.png".
+How to close the application :
+Just kill it in the task manager.
