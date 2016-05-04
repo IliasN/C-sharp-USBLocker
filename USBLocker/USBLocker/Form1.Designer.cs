@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
+            this.tmrLock = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -44,6 +46,11 @@
             this.label1.Size = new System.Drawing.Size(512, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Veuillez inserer la clé USB de déverouillage";
+            // 
+            // tmrLock
+            // 
+            this.tmrLock.Enabled = true;
+            this.tmrLock.Tick += new System.EventHandler(this.tmrLock_Tick);
             // 
             // Form1
             // 
@@ -63,6 +70,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer tmrLock;
     }
 }
 

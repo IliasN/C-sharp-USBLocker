@@ -68,5 +68,12 @@ namespace USBLocker
 
         #endregion
 
+        private void tmrLock_Tick(object sender, EventArgs e)
+        {
+            if (this.Locked)
+            {
+                this.Activate();
+            }
+        }
     }
 }
