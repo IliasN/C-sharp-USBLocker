@@ -53,6 +53,10 @@ namespace USBLocker
 
         #endregion
 
+        /// <summary>
+        /// Check if unlock file exists in all drives
+        /// </summary>
+        /// <returns>The path of the drives where the file is located</returns>
         public string CheckFile()
         {
             foreach (var drive in this.DrivesPath)
