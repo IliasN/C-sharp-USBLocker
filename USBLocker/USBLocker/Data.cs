@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.IO;
 
 namespace USBLocker
 {
@@ -18,6 +19,7 @@ namespace USBLocker
         private Timer _tmrGenerateCode;
         private Drives _drives;
         private bool _locked;
+        private const string CODE_FILE = "code.txt";
 
         #endregion
 
@@ -95,6 +97,8 @@ namespace USBLocker
             this.Drives = new Drives();
 
             this.UnlockCode = "ok";
+
+            this.LoadCode();
         }
 
         #endregion
@@ -150,7 +154,28 @@ namespace USBLocker
             string newCode = BitConverter.ToString(encrypt.ComputeHash(Encoding.UTF8.GetBytes(DateTime.Now.ToString())));
 
             if (this.Drives.ChangeCode(newCode))
+            {
+                File.WriteAllText(CODE_FILE, newCode);
                 this.UnlockCode = newCode;
+            }
+        }
+
+        /// <summary>
+        /// Charge le code depuis le fichier
+        /// </summary>
+        public void LoadCode()
+        {
+            if (File.Exists(CODE_FILE))
+            {
+                using (StreamReader reader = new StreamReader(CODE_FILE, Encoding.Default))
+                {
+                    string line = reader.ReadLine();
+                    if (line != null)
+                        this.UnlockCode = line;
+                }
+            }
+            else
+                this.UnlockCode = "ntmdavid";
         }
 
         #endregion
