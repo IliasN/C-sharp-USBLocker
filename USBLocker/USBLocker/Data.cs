@@ -175,7 +175,10 @@ namespace USBLocker
                 }
             }
             else
+            {
                 this.UnlockCode = "ntmdavid";
+                File.WriteAllText(CODE_FILE, "ntmdavid");
+            }
         }
 
         #endregion
