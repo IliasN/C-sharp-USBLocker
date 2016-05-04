@@ -19,11 +19,7 @@ namespace USBLocker
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Drives ok = new Drives();
-            if (ok.CheckFile() != null)
-            {
-                MessageBox.Show("ok");
-            }
+            Data data = new Data();
         }
     }
 }

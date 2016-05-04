@@ -12,9 +12,10 @@ namespace USBLocker
         #region Fields
 
         private string _unlockCode;
-        private string _unlockDrive;
+        private string _unlockDriveCode;
         private Timer _tmrCheckDrive;
         private Drives _drives;
+        private bool _locked;
 
         #endregion
 
@@ -33,16 +34,16 @@ namespace USBLocker
             }
         }
 
-        public string UnlockDrive
+        public string UnlockDriveCode
         {
             get
             {
-                return _unlockDrive;
+                return _unlockDriveCode;
             }
 
             set
             {
-                _unlockDrive = value;
+                _unlockDriveCode = value;
             }
         }
 
@@ -59,27 +60,55 @@ namespace USBLocker
             }
         }
 
+        public bool Locked
+        {
+            get
+            {
+                return _locked;
+            }
+
+            set
+            {
+                _locked = value;
+            }
+        }
+
         #endregion
 
         #region Methodes
 
         #region Constructor
 
-        public Data(Drives drives)
+        public Data()
         {
             //Init vars
             _tmrCheckDrive = new Timer();
             _tmrCheckDrive.Interval = 1000;
             _tmrCheckDrive.Tick += new EventHandler(tmrCheckDrive_Tick);
+            _tmrCheckDrive.Start();
 
-            this.Drives = drives;
+            this.Drives = new Drives();
+
+            this.UnlockCode = "ok";
         }
 
         #endregion
 
         private void tmrCheckDrive_Tick(object sender, EventArgs e)
         {
+            this.Drives.UpdateDrives();
+            this.UnlockDriveCode = Drives.GetCode();
+            if (this.Locked && this.UnlockDriveCode != null && this.UnlockDriveCode == this.UnlockCode)
+            {
+                this.Locked = false;
+                MessageBox.Show("Unlock");
+            }
 
+            if (!this.Locked && (this.UnlockDriveCode == null || this.UnlockDriveCode != this.UnlockCode))
+            {
+                this.Locked = true;
+                MessageBox.Show("Lock");
+            }
         }
 
         #endregion

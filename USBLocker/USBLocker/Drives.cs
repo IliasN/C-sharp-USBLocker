@@ -62,9 +62,39 @@ namespace USBLocker
             foreach (var drive in this.DrivesPath)
             {
                 if (File.Exists(drive + FILE))
-                    return drive;
+                    return drive + FILE;
             }
             return null;
+        }
+
+        /// <summary>
+        /// Get the code found on the first line of the unlock file
+        /// </summary>
+        /// <returns>The code found</returns>
+        public string GetCode()
+        {
+            string unlockDrive = CheckFile();
+            if (unlockDrive != null)
+            {
+                StreamReader reader = new StreamReader(unlockDrive, Encoding.Default);
+                return reader.ReadLine();
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Update the drives to check if new drives has been connected
+        /// </summary>
+        public void UpdateDrives()
+        {
+            this.DrivesPath.Clear();
+            //Get drives
+            DriveInfo[] driveList = DriveInfo.GetDrives();
+
+            foreach (DriveInfo drive in driveList)
+            {
+                this.DrivesPath.Add(drive.Name.ToString());
+            }
         }
 
         #endregion
