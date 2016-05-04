@@ -76,8 +76,10 @@ namespace USBLocker
             string unlockDrive = CheckFile();
             if (unlockDrive != null)
             {
-                StreamReader reader = new StreamReader(unlockDrive, Encoding.Default);
-                return reader.ReadLine();
+                using (StreamReader reader = new StreamReader(unlockDrive, Encoding.Default))
+                {
+                    return reader.ReadLine();
+                }
             }
             return null;
         }
@@ -95,6 +97,17 @@ namespace USBLocker
             {
                 this.DrivesPath.Add(drive.Name.ToString());
             }
+        }
+
+        public bool ChangeCode(string code)
+        {
+            string path = CheckFile();
+            if (path != null)
+            {
+                File.WriteAllText(path, code);
+                return true;
+            }
+            return false;
         }
 
         #endregion
