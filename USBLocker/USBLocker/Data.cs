@@ -148,16 +148,16 @@ namespace USBLocker
             this.UnlockDriveCode = Drives.GetCode();
             if (this.Locked && this.UnlockDriveCode != null && this.UnlockDriveCode == this.UnlockCode)
             {
+                //Unlock
                 this.Locked = false;
                 this.View.Unlock();
-                //MessageBox.Show("Unlock");
             }
 
             if (!this.Locked && (this.UnlockDriveCode == null || this.UnlockDriveCode != this.UnlockCode))
             {
+                //Lock
                 this.Locked = true;
                 this.View.Lock();
-                //MessageBox.Show("Lock");
             }
         }
 
@@ -171,7 +171,7 @@ namespace USBLocker
             SHA1 encrypt = new SHA1CryptoServiceProvider();
             string newCode = BitConverter.ToString(encrypt.ComputeHash(Encoding.UTF8.GetBytes(DateTime.Now.ToString())));
 
-            if (this.Drives.ChangeCode(newCode))
+            if (this.Drives.ChangeCode(newCode) && !this.Locked)
             {
                 File.WriteAllText(CODE_FILE, newCode);
                 this.UnlockCode = newCode;
