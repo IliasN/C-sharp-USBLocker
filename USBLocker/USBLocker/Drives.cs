@@ -99,6 +99,11 @@ namespace USBLocker
             }
         }
 
+        /// <summary>
+        /// Check the key and update the code
+        /// </summary>
+        /// <param name="code">The new code</param>
+        /// <returns>True if the code has been changed in the key</returns>
         public bool ChangeCode(string code)
         {
             string path = CheckFile();

@@ -20,6 +20,7 @@ namespace USBLocker
         private Drives _drives;
         private bool _locked;
         private const string CODE_FILE = "code.txt";
+        private Form1 _view;
 
         #endregion
 
@@ -77,13 +78,26 @@ namespace USBLocker
             }
         }
 
+        public Form1 View
+        {
+            get
+            {
+                return _view;
+            }
+
+            set
+            {
+                _view = value;
+            }
+        }
+
         #endregion
 
         #region Methodes
 
         #region Constructor
 
-        public Data()
+        public Data(Form1 view)
         {
             //Init vars
             _tmrCheckDrive = new Timer();
@@ -93,6 +107,8 @@ namespace USBLocker
             _tmrGenerateCode = new Timer();
             _tmrGenerateCode.Interval = 60000;
             _tmrGenerateCode.Tick += new EventHandler(tmrGenerateCode_Tick);
+
+            this.View = view;
 
             this.Drives = new Drives();
 
@@ -133,13 +149,15 @@ namespace USBLocker
             if (this.Locked && this.UnlockDriveCode != null && this.UnlockDriveCode == this.UnlockCode)
             {
                 this.Locked = false;
-                MessageBox.Show("Unlock");
+                this.View.Unlock();
+                //MessageBox.Show("Unlock");
             }
 
             if (!this.Locked && (this.UnlockDriveCode == null || this.UnlockDriveCode != this.UnlockCode))
             {
                 this.Locked = true;
-                MessageBox.Show("Lock");
+                this.View.Lock();
+                //MessageBox.Show("Lock");
             }
         }
 
