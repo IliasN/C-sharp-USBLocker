@@ -100,5 +100,11 @@ namespace USBLocker
                 this.Activate();
             }
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.Locked)
+                e.Cancel = true;
+        }
     }
 }
