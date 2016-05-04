@@ -76,6 +76,7 @@ namespace USBLocker
         /// </summary>
         public void Unlock()
         {
+            this.FormBorderStyle = FormBorderStyle.Sizable;
             this.WindowState = FormWindowState.Minimized;
             this.ShowInTaskbar = false;
             this.Locked = false;
