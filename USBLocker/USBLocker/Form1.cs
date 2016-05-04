@@ -15,6 +15,7 @@ namespace USBLocker
         #region Fields
 
         private bool _locked;
+        private Image _img;
 
         #endregion
 
@@ -53,7 +54,8 @@ namespace USBLocker
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
-            pibWallpaper.ImageLocation = "wallpaper.png";
+            _img = Image.FromFile("wallpaper.png");
+            pibWallpaper.Image = _img;
             Data data = new Data(this);
             data.Start();
             this.WindowState = FormWindowState.Minimized;
