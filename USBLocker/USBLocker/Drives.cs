@@ -39,25 +39,28 @@ namespace USBLocker
 
         public Drives()
         {
+            //Init vars
+            this.DrivesPath = new List<string>();
+            //Get drives
             DriveInfo[] driveList = DriveInfo.GetDrives();
 
             foreach (DriveInfo drive in driveList)
             {
-                this.DrivesPath.Add(drive.Name);
+                this.DrivesPath.Add(drive.Name.ToString());
             }
 
         }
 
         #endregion
 
-        public bool CheckFile()
+        public string CheckFile()
         {
             foreach (var drive in this.DrivesPath)
             {
                 if (File.Exists(drive + FILE))
-                    return true;
+                    return drive;
             }
-            return false;
+            return null;
         }
 
         #endregion
