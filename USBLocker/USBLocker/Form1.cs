@@ -96,6 +96,7 @@ namespace USBLocker
         {
             if (this.Locked)
             {
+                Cursor.Position = new Point(0, 0);
                 this.Activate();
             }
         }
