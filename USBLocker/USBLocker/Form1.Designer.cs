@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tmrLock = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pibWallpaper = new System.Windows.Forms.PictureBox();
             this.niMain = new System.Windows.Forms.NotifyIcon(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pibWallpaper)).BeginInit();
             this.SuspendLayout();
             // 
             // tmrLock
@@ -41,18 +41,18 @@
             this.tmrLock.Enabled = true;
             this.tmrLock.Tick += new System.EventHandler(this.tmrLock_Tick);
             // 
-            // pictureBox1
+            // pibWallpaper
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pibWallpaper.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(649, 349);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pibWallpaper.Image = ((System.Drawing.Image)(resources.GetObject("pibWallpaper.Image")));
+            this.pibWallpaper.Location = new System.Drawing.Point(0, 0);
+            this.pibWallpaper.Name = "pibWallpaper";
+            this.pibWallpaper.Size = new System.Drawing.Size(649, 349);
+            this.pibWallpaper.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pibWallpaper.TabIndex = 0;
+            this.pibWallpaper.TabStop = false;
             // 
             // niMain
             // 
@@ -65,18 +65,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(648, 348);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pibWallpaper);
             this.Name = "Form1";
             this.Text = "USB locker";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pibWallpaper)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Timer tmrLock;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pibWallpaper;
         private System.Windows.Forms.NotifyIcon niMain;
     }
 }
