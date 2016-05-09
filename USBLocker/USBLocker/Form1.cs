@@ -71,6 +71,7 @@ namespace USBLocker
             this.WindowState = FormWindowState.Maximized;
             this.Locked = true;
             Show();
+            this.TopMost = true;
         }
 
         /// <summary>
@@ -83,6 +84,7 @@ namespace USBLocker
             this.ShowInTaskbar = false;
             this.Locked = false;
             Hide();
+            this.TopMost = false;
         }
 
         #endregion
