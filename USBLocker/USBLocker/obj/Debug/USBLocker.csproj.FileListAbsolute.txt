@@ -7,3 +7,12 @@ E:\CFPT 3ème\M318\USBLocker\USBLocker\USBLocker\obj\Debug\USBLocker.Properties.
 E:\CFPT 3ème\M318\USBLocker\USBLocker\USBLocker\obj\Debug\USBLocker.csproj.GenerateResource.Cache
 E:\CFPT 3ème\M318\USBLocker\USBLocker\USBLocker\obj\Debug\USBLocker.exe
 E:\CFPT 3ème\M318\USBLocker\USBLocker\USBLocker\obj\Debug\USBLocker.pdb
+C:\Users\n'hairii\Git\C-sharp-USBLocker\USBLocker\USBLocker\bin\Debug\USBLocker.exe.config
+C:\Users\n'hairii\Git\C-sharp-USBLocker\USBLocker\USBLocker\obj\Debug\USBLocker.exe
+C:\Users\n'hairii\Git\C-sharp-USBLocker\USBLocker\USBLocker\obj\Debug\USBLocker.pdb
+C:\Users\n'hairii\Git\C-sharp-USBLocker\USBLocker\USBLocker\bin\Debug\USBLocker.exe
+C:\Users\n'hairii\Git\C-sharp-USBLocker\USBLocker\USBLocker\bin\Debug\USBLocker.pdb
+C:\Users\n'hairii\Git\C-sharp-USBLocker\USBLocker\USBLocker\obj\Debug\USBLocker.csprojResolveAssemblyReference.cache
+C:\Users\n'hairii\Git\C-sharp-USBLocker\USBLocker\USBLocker\obj\Debug\USBLocker.Form1.resources
+C:\Users\n'hairii\Git\C-sharp-USBLocker\USBLocker\USBLocker\obj\Debug\USBLocker.Properties.Resources.resources
+C:\Users\n'hairii\Git\C-sharp-USBLocker\USBLocker\USBLocker\obj\Debug\USBLocker.csproj.GenerateResource.Cache
