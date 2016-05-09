@@ -100,7 +100,14 @@ namespace USBLocker
             {
                 Cursor.Position = new Point(0, 0);
                 this.Activate();
-                SendKeys.Send("{ESC}");
+                try
+                {
+                    SendKeys.Send("{ESC}");
+                }
+                catch (Exception)
+                {
+                    
+                }
             }
         }
 
